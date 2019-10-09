@@ -9,6 +9,7 @@ LOGS=${2-10}
 
 cmd="docker service logs $1 -f --tail $LOGS --raw"
 
-echo "$cmd | bunyan ${@:2}"
-ssh ${SERVER} $cmd | bunyan -o short ${@:3}
+echo "$cmd | bunyan ${@:3}"
+ssh ${SERVER} $cmd | ~/bash/bunyan.js -o short ${@:3}
+# -l trace
 # ssh primary.buzz.guru $cmd | ~/projects/lego-starter-kit/bunyan

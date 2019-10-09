@@ -14,7 +14,7 @@ alias gc="~/bash/gc.sh"
 alias gitfix="gc \"quick fix\" && git push"
 alias gf="gc \"quick fix\" && git push"
 
-alias chown2="sudo chown -R $USER:staff"
+#alias chown2="sudo chown -R $USER:staff"
 alias chmod2="chmod -R 755"
 
 alias ab2="ab -n 1000 -c 100"
