@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # echo "I  ❤️  U"
 
 # echo $PATH
