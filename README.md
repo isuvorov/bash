@@ -1,6 +1,7 @@
 # bash
 Bash aliases
 
+clone repo in home
 ```
 cd ~
 git clone https://github.com/isuvorov/bash
