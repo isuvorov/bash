@@ -15,6 +15,8 @@ alias gp="git push origin develop:master"
 alias gc="~/bash/gc.sh"
 alias gitfix="gc \"quick fix\" && git push"
 alias gf="gc \"quick fix\" && git push"
+alias gitlab="~/bash/gitlab.sh"
+
 
 #alias chown2="sudo chown -R $USER:staff"
 alias chmod2="chmod -R 755"
