@@ -36,7 +36,10 @@ alias nw="npm run watch"
 alias nr="rm -f package-lock.json && rm -rf node_modules && npm install"
 #alias nr="rm -rf yarn.lock && rm -rf node_modules && yarn"
 alias ni=" npm i --no-save"
-alias nl="find node_modules -maxdepth 3 -type l | egrep '^node_modules/[^\.]'"
+alias nl.="find node_modules -maxdepth 3 -type l | egrep '^node_modules/[^\.]'"
+alias nl="find . -maxdepth 5 -type l | egrep 'node_modules/[^\.]' | grep -v /\.bin"
+# alias nl="find . -maxdepth 5 -type l | egrep 'node_modules/[^\.]' | grep -v /\.bin | xargs ls -l | xargs cut -d' \./' -f 2"
+
 #alias nl="find node_modules -maxdepth 2 -type l | cut -d'/' -f 2"
 alias nv="cat package.json | grep version"
 
