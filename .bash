@@ -38,6 +38,8 @@ alias nr="rm -f package-lock.json && rm -rf node_modules && npm install"
 alias ni=" npm i --no-save"
 alias nl.="find node_modules -maxdepth 3 -type l | egrep '^node_modules/[^\.]'"
 alias nl="find . -maxdepth 5 -type l | egrep 'node_modules/[^\.]' | grep -v /\.bin"
+alias nremove="find . -maxdepth 4 -type d -name 'node_modules'"
+alias nremoveyes="find . -maxdepth 4 -type d -name 'node_modules' | xargs rm -R"
 # alias nl="find . -maxdepth 5 -type l | egrep 'node_modules/[^\.]' | grep -v /\.bin | xargs ls -l | xargs cut -d' \./' -f 2"
 
 #alias nl="find node_modules -maxdepth 2 -type l | cut -d'/' -f 2"
