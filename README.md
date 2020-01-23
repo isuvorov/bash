@@ -13,9 +13,21 @@ git clone https://github.com/isuvorov/bash
 echo "\n. ~/bash/.bash" >> ~/.bash
 ```
 
-3. install oh-my-zsh
+3. Install oh-my-zsh
+https://github.com/ohmyzsh/ohmyzsh
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
-4. add `. ~/bash/.zshrc` in `~/.zshrc`
+4. Install Powerlevel9k theme and zsh-autosuggestions plugin
+https://github.com/Powerlevel9k/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k
+
+```sh
+git clone https://github.com/bhilburn/powerlevel9k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+5. add `. ~/bash/.zshrc` in `~/.zshrc`
 
 ```sh
 echo "\n. ~/bash/.zshrc" >> ~/.zshrc
