@@ -1,4 +1,4 @@
-# bash
+# Bash configs
 Bash aliases, zsh/oh-my-zsh config and shell utilites
 
 ### 1. clone repo in home
