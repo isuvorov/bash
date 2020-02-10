@@ -17,14 +17,11 @@ alias gitfix="gc \"quick fix\" && git push"
 alias gf="gc \"quick fix\" && git push"
 alias gitlab="~/bash/gitlab.sh"
 
-
-#alias chown2="sudo chown -R $USER:staff"
-alias chmod2="chmod -R 755"
-
 alias ab2="ab -n 1000 -c 100"
 alias ab3="ab -n 5000 -c 500"
 alias ab4="ab -n 10000 -c 1000"
 
+alias nc="npm run commit"
 alias nd="INSTANCE=1 STAGE=$USER npm run dev"
 alias nds="INSTANCE=1 STAGE=$USER npm run server"
 alias nt="npm test --watch"
