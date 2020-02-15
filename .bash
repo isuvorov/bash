@@ -15,6 +15,8 @@ alias gp="git push origin develop:master"
 alias gc="~/bash/gc.sh"
 alias gitfix="gc \"quick fix\" && git push"
 alias gf="gc \"quick fix\" && git push"
+alias gls="~/bash/gls.sh"
+
 alias gitlab="~/bash/gitlab.sh"
 
 alias ab2="ab -n 1000 -c 100"
