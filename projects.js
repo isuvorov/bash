@@ -27,13 +27,19 @@ projectDirs.forEach((projectDir) => {
 
 }, []);
 
-
-const json = JSON.stringify(dirs.map(({dir, name}) => ({
-		"name": name,
-		"rootPath": dir,
-		"paths": [],
-		"group": ""
-})), null, 4)
+const projects = dirs.map(({dir, name}) => ({
+  "name": name,
+  "rootPath": dir,
+  "paths": [],
+  "group": ""
+}));
+projects.push({
+  "name": "bash",
+  "rootPath": "/Users/isuvorov/bash",
+  "paths": [],
+  "group": ""
+});
+const json = JSON.stringify(projects, null, 4)
 
 
 fs.writeFileSync(projectJsonDir + '/projects.json', json);
