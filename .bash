@@ -25,6 +25,7 @@ alias ab4="ab -n 10000 -c 1000"
 
 alias nc="npm run commit"
 alias nd="INSTANCE=1 STAGE=$USER npm run dev"
+alias ndd="PORT=3001 config__server__port=8081 INSTANCE=1 STAGE=$USER npm run dev"
 alias nds="INSTANCE=1 STAGE=$USER npm run server"
 alias nt="npm test --watch"
 alias nu="npm-check -uE"
