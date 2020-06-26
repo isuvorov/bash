@@ -6,11 +6,11 @@ exec('git remote -v', (err, stdout) => {
   if (err) {
     console.error(err)
   } else {
-    const data = stdout.split('\n').map(row => {
+    const data = stdout.split('\n').filter(Boolean).map(row => {
       const [name, git] = row.trim().split('\t').filter(Boolean);
       let [originalUrl, type] = git.split(' ');
 
-      if (!originalUrl.startsWith('http')) {
+      if (!originalUrl.startsWith('http') && !originalUrl.startsWith('ssh')) {
         originalUrl = 'ssh://' + originalUrl;
       }
       // console.log({originalUrl});
