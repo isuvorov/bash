@@ -1,0 +1,23 @@
+{
+  "name": "bash",
+  "version": "1.0.0",
+  "description": "Bash aliases, zsh/oh-my-zsh config and shell utilites",
+  "main": "bunyan.js",
+  "dependencies": {
+    "open": "^7.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isuvorov/bash.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isuvorov/bash/issues"
+  },
+  "homepage": "https://github.com/isuvorov/bash#readme"
+}
