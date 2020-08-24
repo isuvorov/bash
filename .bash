@@ -59,6 +59,7 @@ alias c.="code ."
 
 alias nmongod="sudo mongod --dbpath /var/lib/mongodb"
 alias dc="docker-compose"
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
