@@ -33,3 +33,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ```sh
 echo "\n. ~/bash/.zshrc" >> ~/.zshrc
 ```
+
+### 6. Restart the terminal and enjoy :)
