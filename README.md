@@ -35,3 +35,7 @@ echo "\n. ~/bash/.zshrc" >> ~/.zshrc
 ```
 
 ### 6. Restart the terminal and enjoy :)
+
+### Tips
+
+`touch .hushlogin` - скрыть сообщение про last login
