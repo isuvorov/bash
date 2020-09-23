@@ -6,7 +6,6 @@
 alias p="~/bash/p.sh"
 alias pd="~/bash/pd.sh"
 alias pds="~/bash/pds.sh"
-alias pds="~/bash/pds.sh"
 alias pdslogs="~/bash/pdslogs.sh"
 alias alert="~/bash/alert.sh"
 alias gitfix="~/bash/gitfix.sh"
