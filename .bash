@@ -29,7 +29,7 @@ alias ndd="PORT=3001 config__server__port=8081 INSTANCE=1 STAGE=$USER npm run de
 alias nds="INSTANCE=1 STAGE=$USER npm run server"
 alias nt="npm test --watch"
 alias nu="npm-check -uE"
-alias projects="cd ~/projects && ~/bash/gls.sh && node ~/bash/projects.js ~/projects"
+alias projects="node ~/bash/projects.js ~/projects && cd ~/projects && ~/bash/gls.sh && cd -"
 #alias nu="yarn upgrade-interactive --latest"
 alias ns="npm run storybook"
 alias np="npm run release"
@@ -71,3 +71,9 @@ alias st.="open -a SourceTree ."
 
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
+
+
+## NPM AD-BLOCK 
+export OPEN_SOURCE_CONTRIBUTOR=true
+export DISABLE_OPENCOLLECTIVE=true
+export OPENCOLLECTIVE_HIDE=true
