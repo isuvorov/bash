@@ -5,16 +5,15 @@ ARGS=${@}
 PORT=`node -e "console.log(require('./.env.js').port || 8080)"`
 
 cmd="http --check-status http://localhost:$PORT$ARGS"
-
-echo "$cmd"
-
-$cmd
+echo "> $cmd" && $cmd
 
 while [ $? -ne 0 ]; do
+  echo "======================================================"
+  sleep 1
   echo "ERROR, repeat in 2 second"
   sleep 1
-  echo ""
+  echo "======================================================"
   sleep 1
-  echo "$cmd"
+  echo "> $cmd" && $cmd
   $cmd
 done
