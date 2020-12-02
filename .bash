@@ -16,6 +16,7 @@ alias gp="git push origin develop:master"
 alias gc="~/bash/gc.sh"
 alias gls="~/bash/gls.sh"
 alias api="~/bash/api.sh"
+alias apis="~/bash/apid.sh"
 
 # alias gitlab="~/bash/gitlab.sh"
 alias gitlab="node ~/bash/gitlab.js"
