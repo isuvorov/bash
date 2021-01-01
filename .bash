@@ -20,6 +20,7 @@ alias apis="~/bash/apid.sh"
 
 # alias gitlab="~/bash/gitlab.sh"
 alias gitlab="node ~/bash/gitlab.js"
+alias gclone="node ~/bash/gclone.js"
 
 alias ab2="ab -n 1000 -c 100"
 alias ab3="ab -n 5000 -c 500"
