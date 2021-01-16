@@ -24,7 +24,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 See: https://github.com/Powerlevel9k/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k
 ```sh
-git clone https://github.com/bhilburn/powerlevel9k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
@@ -38,7 +38,8 @@ echo "\n. ~/bash/.zshrc" >> ~/.zshrc
 
 Install [iTerm2](https://iterm2.com/) if you dont have.
 
-iTerm2 Preferences > Tab Preferences > Load preferences ... > enable
+iTerm2 Preferences > Tab General > Sub Tab Preferences > Load preferences ... > enable
+
 fill `~/bash/iterm`
 
 
