@@ -17,7 +17,7 @@ echo "\n. ~/bash/.bash" >> ~/.bash
 
 ```sh
 touch .hushlogin
-``
+```
 
 
 ### 3. Install oh-my-zsh
