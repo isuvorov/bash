@@ -34,7 +34,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 echo "\n. ~/bash/.zshrc" >> ~/.zshrc
 ```
 
-### 6. Restart the terminal and enjoy :)
+### 6. iTerm2  (Bonus)
+
+Install [iTerm2](https://iterm2.com/) if you dont have.
+
+iTerm2 Preferences > Tab Preferences > Load preferences ... > enable
+fill `~/bash/iterm`
+
+
+### 7. Restart the terminal and enjoy :)
 
 ### Tips
 
