@@ -13,6 +13,13 @@ git clone https://github.com/isuvorov/bash
 echo "\n. ~/bash/.bash" >> ~/.bash
 ```
 
+*Tips*: How to disable messages about "last login"
+
+```sh
+touch .hushlogin
+``
+
+
 ### 3. Install oh-my-zsh
 
 See: https://github.com/ohmyzsh/ohmyzsh
@@ -44,7 +51,3 @@ fill `~/bash/iterm`
 
 
 ### 7. Restart the terminal and enjoy :)
-
-### Tips
-
-`touch .hushlogin` - скрыть сообщение про last login
