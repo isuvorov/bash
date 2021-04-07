@@ -8,7 +8,7 @@ git clone https://github.com/isuvorov/bash
 ```
 Clone to the root folder, do everything as in the screenshot:
 <p align="left">
-  <img width="564" height="266" src="./images/cloning_into_bash.png">
+  <img width="564" src="./images/cloning_into_bash.png">
 </p>
 
 
@@ -71,8 +71,34 @@ fill `~/bash/iterm`
   <img width="748" height="244" src="./images/iTerm2.png">
 </p>
 
+### 6.1 Install the font
+Click on the [link] (https://larsenwork.com/monoid/) to download the Monoid font.
+Unpack the archive, go to the folder.
+
+<p align="left">
+  <img width="669" src="./images/zip_font.png">
+</p>
+
+Select files with the ttf extension, double-click on any of the selected files and install the font.
+
+<p align="left">
+  <img width="734" src="./images/select_files.png">
+</p>
+
+<p align="left">
+  <img width="512" src="./images/install_font.png">
+</p>
+
+The Font Book (Шрифты) program should open itself
+
+<p align="left">
+  <img width="999" src="./images/font_book.png">
+</p>
+
+Close this program, everything is ready :) 
+
 ### 7. Restart the terminal and enjoy :)
 
 <p align="left">
-  <img src="./images/hello_world.png">
+  <img width="570" src="./images/updated_iTerm.png">
 </p>
