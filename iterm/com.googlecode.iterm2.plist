@@ -270,13 +270,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.8735930323600769</real>
+				<real>0.0</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.66617810726165771</real>
-				<key>Red Component</key>
 				<real>0.0</real>
+				<key>Red Component</key>
+				<real>1</real>
 			</dict>
 			<key>Ansi 15 Color</key>
 			<dict>
@@ -457,7 +457,7 @@
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
-			<real>0.077787642045454547</real>
+			<real>0.067347301136363641</real>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -555,7 +555,7 @@
 				<real>0.023</real>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.41055575284090912</real>
+			<real>0.45543323863636365</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -630,7 +630,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.079944064349112429</real>
+			<real>0.16969065381611748</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -2199,8 +2199,6 @@
 			<string>kNextTabPointerAction</string>
 		</dict>
 	</dict>
-	<key>PreventEscapeSequenceFromClearingHistory</key>
-	<false/>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
