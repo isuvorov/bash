@@ -102,3 +102,9 @@ Close this program, everything is ready :)
 <p align="left">
   <img width="570" src="./images/updated_iTerm.png">
 </p>
+
+#### How open sourcetree from command line with our aliases
+
+```bash
+$ st NAME_PROJECT_FOLDER
+```
