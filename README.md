@@ -103,8 +103,97 @@ Close this program, everything is ready :)
   <img width="570" src="./images/updated_iTerm.png">
 </p>
 
-#### How open sourcetree from command line with our aliases
+### Aliases 
+#### Open sourcetree from command line with our aliases
 
+Open app
+```bash
+$ st
+```
+<br/>
+
+Open project's folder
 ```bash
 $ st NAME_PROJECT_FOLDER
 ```
+<br/>
+
+Open current project folder
+```bash
+$ st .
+```
+<br/>
+<br/>
+
+#### Open IDE from command line with our aliases
+
+Open Atom
+```bash
+$ a
+```
+<br/>
+
+Open current project folder in Atom
+```bash
+$ a .
+```
+<br/>
+
+Open VS Code
+```bash
+$ c
+```
+<br/>
+
+Open current project folder in VS Code
+```bash
+$ s
+```
+or
+```bash
+$ sublime
+```
+or
+```bash
+$ subl
+```
+<br/>
+
+Open Sublime Text
+```bash
+$ c
+```
+<br/>
+
+Open Finder
+```bash
+$ o
+```
+<br/>
+<br/>
+
+#### NPM's aliases
+
+npm run dev
+```bash
+$ nd
+```
+<br/>
+
+npm run devserver
+```bash
+$ nds
+```
+<br/>
+
+npm run release
+```bash
+$ np
+```
+<br/>
+
+Remove node_modules and reinstall
+```bash
+$ nrf
+```
+<br/>
