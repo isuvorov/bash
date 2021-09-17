@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const getGitUrl = initUrl => {
   let originalUrl = initUrl;
   if (!originalUrl.startsWith('http') && !originalUrl.startsWith('ssh')) {

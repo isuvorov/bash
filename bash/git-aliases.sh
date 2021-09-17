@@ -1,0 +1,8 @@
+alias gitfix="~/bash/bash/git/gitfix.sh"
+alias gf="~/bash/bash/git/gitfix.sh"
+alias ga="git add ."
+alias gp="git push origin develop:master"
+alias gc="~/bash/bash/git/gc.sh"
+alias gls="~/bash/bash/git/gls.sh"
+alias gitlab="~/bash/bash/git/gitlab.js"
+alias gclone="~/bash/bash/git/gclone.js"

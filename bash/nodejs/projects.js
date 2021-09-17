@@ -1,9 +1,10 @@
+#!/usr/bin/env node
 const fs = require('fs');
 
-const projectJsonDir = __dirname + '/../projects'
-const projectDirs = [projectJsonDir];
+const projectJsonDir = process.env.HOME + '/projects'
+const projectDirs = [projectJsonDir, process.env.HOME + '/isuvorov/projects'];
 // const projectDirs = [__dirname, __dirname + '/lskjs'];
-
+console.log(projectDirs)
 
 function isProject(file, projectDir) {
   if (file === 'node_modules') return false;

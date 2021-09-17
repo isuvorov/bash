@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const open = require('open');
 const { exec } = require('child_process');
 const getGitUrl = require('./getGitUrl');
