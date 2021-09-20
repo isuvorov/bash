@@ -1,25 +1,8 @@
 #!/bin/bash
-
-# TEST="/${#$HOME/~}"
-
-# TEST=${HOME//\/Volumes\/backupssd\/project/X} 
 HOME2='/Volumes/backupssd/projects'
-# firstString="/Volumes/backupssd/projects/asfdgfdgf"
-# firstString2="/Volumes/backupssd/projects"
-# secondString="~/projects"
-# HOME=${HOME/$firstString2/$secondString}
-# echo $HOME
 
-# echo $TEST
-## CLI set up
-# PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/asdasd}\007"'
-# export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
-
-## Aliases set up
-. ~/bash/bash/apps-aliases.sh
-. ~/bash/bash/git-aliases.sh
-. ~/bash/bash/nodejs-aliases.sh
-. ~/bash/bash/utils-aliases.sh
+## SSH UTM-8
+export LANG=en_US.UTF-8
 
 ## NPM AD-BLOCK 
 export OPEN_SOURCE_CONTRIBUTOR=true
@@ -31,3 +14,9 @@ export LOG_LEVEL=trace
 
 # autoload -U compinit
 compinit
+
+## Aliases set up
+. ~/bash/bash/apps-aliases.sh
+. ~/bash/bash/git-aliases.sh
+. ~/bash/bash/nodejs-aliases.sh
+. ~/bash/bash/utils-aliases.sh
