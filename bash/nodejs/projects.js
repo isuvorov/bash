@@ -2,9 +2,9 @@
 const fs = require('fs');
 
 const projectJsonDir = process.env.HOME + '/projects'
-const projectDirs = [projectJsonDir, process.env.HOME + '/isuvorov/projects'];
+const projectDirs = [...(process.env.PROJECTS || '').split(','), projectJsonDir, process.env.HOME + '/isuvorov/projects'];
 // const projectDirs = [__dirname, __dirname + '/lskjs'];
-console.log(projectDirs)
+console.log({projectDirs})
 
 function isProject(file, projectDir) {
   if (file === 'node_modules') return false;
@@ -16,15 +16,20 @@ function isProject(file, projectDir) {
 
 const dirs = [];
 projectDirs.forEach((projectDir) => {
-  const files = fs.readdirSync(projectDir);
+  try {
+    const files = fs.readdirSync(projectDir);
 
-  files.forEach(file => {
-    if (!isProject(file, projectDir)) return;
-    dirs.push({
-      name: file,
-      dir: [projectDir, file].join('/'),
+    files.forEach(file => {
+      if (!isProject(file, projectDir)) return;
+      dirs.push({
+        name: file,
+        dir: [projectDir, file].join('/'),
+      });
     });
-  });
+  } catch(err) {
+    console.error({projectDir})
+  }
+
 
 }, []);
 
