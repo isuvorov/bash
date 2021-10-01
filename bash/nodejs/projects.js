@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 const fs = require('fs');
 
-const projectJsonDir = process.env.HOME + '/projects'
-const projectDirs = [...(process.env.PROJECTS || '').split(','), projectJsonDir, process.env.HOME + '/isuvorov/projects'];
+const projectsEnv = process.env.PROJECTS || process.env.HOME + '/projects'
+const projectDirs = (projectsEnv).split(',').filter(Boolean);
+if (!projectDirs.length) throw '!projectDirs§'
+const projectJsonDir = projectDirs[0]
 // const projectDirs = [__dirname, __dirname + '/lskjs'];
 console.log({projectDirs})
 
