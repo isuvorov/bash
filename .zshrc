@@ -31,7 +31,7 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='214'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='236'
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git common-aliases iterm2 dirhistory bundler osx brew httpie history per-directory-history zsh-autosuggestions)
+plugins=(git common-aliases iterm2 dirhistory bundler macos brew httpie history per-directory-history zsh-autosuggestions)
 
 CASE_SENSITIVE="true"
 
