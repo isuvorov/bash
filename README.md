@@ -1,11 +1,37 @@
-# Bash configs
-Bash aliases, zsh/oh-my-zsh config and shell utilites
+# 🎓 Terminal Starter Kit
+ iTerm2, oh-my-zsh, BASH & ZSH Aliases
+
+Its the part of [🎓 MacOS Starter Kit](https://github.com/isuvorov/notes)
+
+# Quickstart
+
+Autoinstall script
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/isuvorov/bash/HEAD/autoinstall.sh)"
+```
+
+## Prepare iTerm or other Terminal App
+
+Install iTerm via Homevrew:
+```bash
+brew install iterm2
+```
+[More info about Homebrew and iTerm](https://github.com/isuvorov/apps)
+
+### 0. check git utils
+
+```bash
+git --version
+```
+
+Install git and xcode-select if need
 
 ### 1. clone repo in home
-```sh
+```bash
 cd ~
 git clone https://github.com/isuvorov/bash
 ```
+
 Clone to the root folder, do everything as in the screenshot:
 <p align="left">
   <img width="564" src="./images/cloning_into_bash.png">
@@ -14,13 +40,13 @@ Clone to the root folder, do everything as in the screenshot:
 
 ### 2. add `. ~/bash/.bash` in `~/.bash`
 
-```sh
+```bash
 echo "\n. ~/bash/.bash" >> ~/.bash
 ```
 
 *Tips*: How to disable messages about "last login"
 
-```sh
+```bash
 touch .hushlogin
 ```
 
@@ -28,7 +54,7 @@ touch .hushlogin
 ### 3. Install oh-my-zsh
 
 See: https://github.com/ohmyzsh/ohmyzsh
-```sh
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 Confirm the switching to zsh after installation:
@@ -44,7 +70,7 @@ Get as a result:
 ### 4. Install Powerlevel10k theme and zsh-autosuggestions plugin
 
 See: https://github.com/romkatv/powerlevel10k
-```sh
+```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
@@ -55,7 +81,7 @@ Get as a result:
 
 ### 5. add `. ~/bash/.zshrc` in `~/.zshrc`
 
-```sh
+```bash
 echo "\n. ~/bash/.zshrc" >> ~/.zshrc
 ```
 
