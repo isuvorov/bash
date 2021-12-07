@@ -1,9 +1,9 @@
 
 alias nc="npm run commit"
-alias nd="INSTANCE=1 STAGE=$USER npm run dev"
-alias nb="INSTANCE=1 STAGE=$USER npm run build"
-alias ndd="PORT=3001 config__server__port=8081 INSTANCE=1 STAGE=$USER npm run dev"
-alias nds="INSTANCE=1 STAGE=$USER npm run dev:server"
+alias nd="INSTANCE=1 npm run dev"
+alias nb="INSTANCE=1 npm run build"
+alias ndd="PORT=3001 config__server__port=8081 INSTANCE=1 npm run dev"
+alias nds="INSTANCE=1 npm run dev:server"
 alias ndc="npm run dev:cra"
 alias ndt="npm run test -- --watch"
 alias ntw="npm run test -- --watch"
