@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 
-const projectsEnv = process.env.PROJECTS || process.env.HOME + '/projects'
+const projectsEnv = process.env.PROJECTS || (process.env.HOME + '/projects')
 const projectDirs = (projectsEnv).split(',').filter(Boolean);
 if (!projectDirs.length) throw '!projectDirs§'
 const projectJsonDir = projectDirs[0]
@@ -43,7 +43,7 @@ const projects = dirs.map(({dir, name}) => ({
 }));
 projects.push({
   "name": "bash",
-  "rootPath": "/Users/isuvorov/bash",
+  "rootPath": process.env.HOME + "/bash",
   "paths": [],
   "group": ""
 });
