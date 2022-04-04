@@ -31,7 +31,7 @@ function countBy(collection, func = a => a)
 }
 
 function joins(kv) {
-  return Object.keys(kv).map(k => `${k}:${kv[k]}`).join(' ');
+  return Object.keys(kv).map(k => `${kv[k]}${k}`).join(' ');
 }
 
 async function main() {
@@ -46,9 +46,10 @@ async function main() {
       const { stdout, stderr } = await exec('git status -s', {cwd});
       if (stderr) throw {stderr}
       if (!stdout) return;
-      const statuses = countBy(stdout.split('\n').map(i => i.substr(0, 2).trim()).filter(Boolean));
+      const h = {A: '➕', M: '✍️', D: '❌', '??': '❓'}
+      const statuses = countBy(stdout.split('\n').map(i => h[i.substr(0, 2).trim()]).filter(Boolean));
       // console.log({statuses})
-      console.log('[uncommited files]', cwd, `[${joins(statuses)}]`)
+      console.log(`[uncommited files ${joins(statuses)}]`, cwd)
       // console.log({ cwd, stdout, stderr })
     })
   })
