@@ -16,7 +16,7 @@ Install iTerm via Homevrew:
 ```bash
 brew install iterm2
 ```
-[More info about Homebrew and iTerm](https://github.com/isuvorov/apps)
+[More info about Homebrew and iTerm](https://github.com/isuvorov/notes/blob/master/apps.md)
 
 ### 0. check git utils
 
