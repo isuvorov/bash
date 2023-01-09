@@ -1,5 +1,4 @@
 #!/bin/bash
-HOME2='/Volumes/backupssd/projects'
 
 ## SSH UTM-8
 export LANG=en_US.UTF-8
