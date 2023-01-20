@@ -153,18 +153,6 @@ $ st .
 
 #### Open IDE from command line with our aliases
 
-Open Atom
-```bash
-$ a
-```
-<br/>
-
-Open current project folder in Atom
-```bash
-$ a .
-```
-<br/>
-
 Open VS Code
 ```bash
 $ c
@@ -223,3 +211,51 @@ Remove node_modules and reinstall
 $ nrf
 ```
 <br/>
+
+
+## Aliases
+
+
+### Open
+- `o <directory>` - открыть директорию в Finder
+- `o.` - открыть текушую директорию в Finder
+
+### VSCode
+- `c <directory|file>` - открыть директорию или файл в VSCode
+- `c.` - открыть текушую директорию в VSCode
+
+### Sublime Text
+- `subl <directory|file>` - открыть директорию или файл в Sublime Text
+- `subl.` - открыть текушую директорию в Sublime Text
+
+### SourceTree
+- `st <directory|file>` - открыть директорию или файл в SourceTree
+- `st.` - открыть текушую директорию в SourceTree
+
+### GIT
+- `gc <MESSAGE>` - альяс для быстрого git commit
+- `gitfix <MESSAGE?>` - альяс для `git add .`  + `git commit` + `git push`. Позволяет быстро "залить" всю, фигню что ты наворотил. Сообщене можно не указывать.
+- `gf <MESSAGE?>` - сокращение для gitfix
+- `gr` - откатиться на предыдущий коммит, выкинув все файлы которые ты изменил. Файлы которые ты уже добавил в стеш git add, сохранятся.
+- `gclone <URL>` - тоже самое что и git clone, но `github.com/isuvorov/fishbird` клонируется в папку `isuvorov-fishbird` а не просто `fishbird`
+
+### Open Github or Gitlab
+- `gitlab` - открыть в браузере текущий коммит. Работает как с gitlab, так и с github. Актуально для того, чтобы смотреть за прогрессом CI. Пример: что-то поменяли, `gitfix && gitlab` - открывается браузер, и вы смотрите как движется пайп.
+
+
+### Node.js
+
+
+- `p` - альяс для pnpm (чтобы не писать лишние 3 символа)
+- `pi` - альяс для pnpm install
+- `px` - альяс для pnpm dlx/pnpx (аналог npx). Который позволяет запускать бинарник, без предварительной установки в global (npm i -g)
+
+- `nd` - альяс для `npm run dev` - те запуска в дев среде
+- `nb` - альяс для `npm run build`-- те сборка проекта
+- `nt` - альяс для `npm run test` -- те тест проекта
+- `ntw` - альяс для `npm run test --watch` - те для запуска тестов в дев режиме
+- `nbt` - альяс для `npm run build --prod && npm run test --prod` - те собери проект в прод режиме и затем протестируй его
+- `nu` - альяс для `pnpm update -i --latest` -- те проверяет какие пакеты можно обновиться. (Если изменения - патчи (меняется последняя цифра в v1.2.3) обновляет автоматом, если минорные/мажорные - показывает интерактивное окно)
+- `nur` - тоже самое что и `nu`, но в том числе для всех пакетов
+- `np` - альяс для `npm run release` - те заливки пакета в npm, перед заливкой он попросит апрува написать `Y`, что он всё правильно понял
+- `npp` - альяс для `npm run release --yes` - те заливки пакета в npm, с автоапрувом

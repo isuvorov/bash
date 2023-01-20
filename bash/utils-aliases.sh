@@ -1,6 +1,6 @@
 
 alias cx="chmod +x"
-alias p="~/bash/bash/utils/p.sh"
+# alias p="~/bash/bash/utils/p.sh"
 alias pd="~/bash/bash/utils/pd.sh"
 alias pds="~/bash/bash/utils/pds.sh"
 alias pdslogs="~/bash/bash/utils/pdslogs.sh"

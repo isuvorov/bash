@@ -1,6 +1,8 @@
 alias gitfix="~/bash/bash/git/gitfix.sh"
 alias gf="~/bash/bash/git/gitfix.sh"
+alias gs="git status"
 alias ga="git add ."
+alias gr="git checkout -- ."
 alias gp="git push origin develop:master"
 alias gc="~/bash/bash/git/gc.sh"
 alias gls="~/bash/bash/git/gls.sh"

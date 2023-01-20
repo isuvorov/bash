@@ -121,3 +121,42 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+
+# pnpm install-completion zsh
+# /Users/isuvorov/.config/tabtab/zsh/pnpm.zsh
+###-begin-pnpm-completion-###
+if type compdef &>/dev/null; then
+  _pnpm_completion () {
+    local reply
+    local si=$IFS
+
+    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" pnpm completion -- "${words[@]}"))
+    IFS=$si
+
+    if [ "$reply" = "__tabtab_complete_files__" ]; then
+      _files
+    else
+      _describe 'values' reply
+    fi
+  }
+  compdef _pnpm_completion pnpm
+  compdef _pnpm_completion p
+fi
+###-end-pnpm-completion-###
+
+# я выражаю уважение своегому сопернику по верстке
+# господин верстальщик, вы наконец довольны?
+# вы наконец получили свой, блядский инфоповод?
+# свой медиавброс
+# пять версток подряд нужно было лажать, чтобы я наконец пришел и отревьювил код
+
+# ну что поздравляю, господин верстальщик и одновременно с этим качок. 
+# ты уже совсем заврался, если кто не знает верстальщикив иерархии стоят ниже фронтендеров, а фронтендеры ниже бекендеров, а бекендеры стоят ниже мусоров
+# тебя бы с таким кодом не подпустили бы в мужскую радевалку, господин верстальщик
+
+
+# зачем тебе вообще эта верстка, если ты не можешь ее написать?
+# зачем врать о своих навыках, если ты не можешь их показать?
+# зачем ты врешь везде ты аноним, тебя никто никогда не видел, я реальный человек, с реальными недостатками кто ты?
+
