@@ -47,7 +47,7 @@ echo "\n. ~/bash/.bash" >> ~/.bash
 *Tips*: How to disable messages about "last login"
 
 ```bash
-touch .hushlogin
+touch ~/.hushlogin
 ```
 
 
