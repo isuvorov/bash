@@ -614,6 +614,15 @@
 				<key>Red Component</key>
 				<real>0.042439606040716171</real>
 			</dict>
+			<key>Semantic History</key>
+			<dict>
+				<key>action</key>
+				<string>editor</string>
+				<key>editor</key>
+				<string>com.microsoft.VSCode</string>
+				<key>text</key>
+				<string></string>
+			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
@@ -653,11 +662,33 @@
 					<key>action</key>
 					<string>BounceTrigger</string>
 					<key>parameter</key>
-					<integer>0</integer>
+					<integer>1</integer>
+					<key>partial</key>
+					<false/>
 					<key>regex</key>
-					<string>⚡️</string>
+					<string>(🚀|⚡️|🎃)(.*)</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>BellTrigger</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string>(🚀|⚡️|🎃)(.*)</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermUserNotificationTrigger</string>
+					<key>parameter</key>
+					<string>\(matches[1]) \(matches[2])</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string>(🚀|⚡️|🎃)(.*)</string>
 				</dict>
 			</array>
+			<key>Triggers Use Interpolated Strings</key>
+			<true/>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1151,6 +1182,15 @@
 				<key>Red Component</key>
 				<real>0.042439606040716171</real>
 			</dict>
+			<key>Semantic History</key>
+			<dict>
+				<key>action</key>
+				<string>editor</string>
+				<key>editor</key>
+				<string>com.microsoft.VSCode</string>
+				<key>text</key>
+				<string></string>
+			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
@@ -1336,9 +1376,25 @@
 					<key>parameter</key>
 					<integer>0</integer>
 					<key>regex</key>
-					<string>⚡️</string>
+					<string>(🚀|⚡️|🎃)(.*)</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>BellTrigger</string>
+					<key>regex</key>
+					<string>(🚀|⚡️|🎃)(.*)</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermUserNotificationTrigger</string>
+					<key>parameter</key>
+					<string>\(matches[1]) \(matches[2])</string>
+					<key>regex</key>
+					<string>(🚀|⚡️|🎃)(.*)</string>
 				</dict>
 			</array>
+			<key>Triggers Use Interpolated Strings</key>
+			<true/>
 			<key>Unicode Version</key>
 			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
@@ -2182,7 +2238,6 @@
 	<integer>2</integer>
 	<key>ToolbeltTools</key>
 	<array>
-		<string>Jobs</string>
 		<string>Notes</string>
 		<string>Actions</string>
 		<string>Captured Output</string>

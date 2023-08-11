@@ -46,9 +46,10 @@ source ~/.bash
 DEFAULT_USER=""
 prompt_context () { }
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff0000"
 # source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
