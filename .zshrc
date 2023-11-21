@@ -2,6 +2,7 @@
 # ln -s ~/bash/oh-my-zsh/themes/powerlevel10k $ZSH_CUSTOM/themes/powerlevel10k 2>/dev/null
 # ln -s ~/bash/oh-my-zsh/plugins/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions 2>/dev/null
 
+
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 # POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
