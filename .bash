@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## SSH UTM-8
+## SSH UTF-8
 export LANG=en_US.UTF-8
 
 ## NPM AD-BLOCK 
