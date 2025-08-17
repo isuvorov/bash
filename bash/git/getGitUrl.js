@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-const getGitUrl = initUrl => {
+const getGitUrl = (initUrl, replace) => {
   let originalUrl = initUrl;
+  if (replace && originalUrl.indexOf(':') !== -1) {
+    originalUrl = originalUrl.replace(':', '/')
+  } 
   if (!originalUrl.startsWith('http') && !originalUrl.startsWith('ssh')) {
     originalUrl = 'ssh://' + originalUrl;
   }

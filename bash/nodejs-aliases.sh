@@ -14,8 +14,51 @@ alias nbt="        echo \"pnpm run build --prod && pnpm run test --prod\" && pnp
 alias nds="        log pnpm run dev:server"
 alias ndc="        log pnpm run dev:cra"
 alias nt="         log pnpm run test"
-alias ntw="        log pnpm run test --watch"
-alias ntf="        log lsk  run test:eslint-fix"
+alias ntw='
+  if grep -q "\"start:watch\":" package.json; then
+    log pnpm run start:watch
+  elif grep -q "\"test:watch\":" package.json; then
+    log pnpm run test:watch
+  else
+    log pnpm run test --watch
+  fi
+'
+alias ntd='
+  if grep -q "\"test:demo\":" package.json; then
+    log pnpm run test:demo
+  elif grep -q "\"test:dev\":" package.json; then
+    log pnpm run test:dev
+  else
+    log pnpm run test --dev
+  fi
+'
+alias ntl='
+  if grep -q "\"test:lint\":" package.json; then
+    log pnpm run test:lint
+  elif grep -q "\"test:eslint\":" package.json; then
+    log pnpm run test:eslint
+  else
+    log pnpm run test --lint
+  fi
+'
+alias ntlf='
+  if grep -q "\"test:lint:fix\":" package.json; then
+    log pnpm run test:lint:fix
+  elif grep -q "\"test:eslint:fix\":" package.json; then
+    log pnpm run test:eslint:fix
+  else
+    log pnpm run test --lint --fix
+  fi
+'
+alias ntf='
+  if grep -q "\"test:lint:fix\":" package.json; then
+    log pnpm run test:lint:fix
+  elif grep -q "\"test:eslint:fix\":" package.json; then
+    log pnpm run test:eslint:fix
+  else
+    log pnpm run test --lint --fix
+  fi
+'
 alias ntb="        log pnpm run test:benchmark"
 alias ntbw="       log pnpm run test:benchmark:watch"
 alias pi="         log pnpm i"
@@ -27,7 +70,17 @@ alias nur="        log pnpm update -i --latest -r"
 alias ncu="        log npm-check -uE"
 alias projects="   log ~/bash/bash/nodejs/projects.js && ~/bash/bash/git/gls.js"
 #alias nu="        log yarn upgrade-interactive --latest"
-alias ns="         log pnpm run storybook"
+# alias ns="         log pnpm run storybook"
+# alias ns='if grep -q "\"start:dev\":" package.json; then log pnpm run start:dev; else log pnpm run storybook; fi'
+alias ns='
+  if grep -q "\"start:dev\":" package.json; then
+    log pnpm run start:dev
+  elif grep -q "\"start:ts\":" package.json; then
+    log pnpm run start:ts
+  else
+    log pnpm run storybook
+  fi
+'
 alias np="         log pnpm run release"
 alias npp="        log pnpm run release --yes"
 alias nw="         log pnpm run watch"
