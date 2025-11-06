@@ -1,16 +1,20 @@
 {
-    "workbench.colorCustomizations": {
-        "editorIndentGuide.activeBackground": "#506069",
-        "editorIndentGuide.background": "#3D4C55",
-        "statusBar.background": "#162730",
-        "debugConsole.warningForeground": "#ffffff",
-        "debugConsole.errorForeground": "#f00",
-        "debugConsole.infoForeground": "#0f0",
-        "debugConsole.sourceForeground": "#ffffff",
-        "debugConsole.inputForeground": "#0f0",
-        "debugConsole.promptForeground": "#ffffff",
-        "activityBar.background": "#113508",
-        "titleBar.activeBackground": "#184A0C",
-        "titleBar.activeForeground": "#F3FDF0"
-    }
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
 }

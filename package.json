@@ -4,9 +4,11 @@
   "description": "Bash aliases, zsh/oh-my-zsh config and shell utilites",
   "main": "bunyan.js",
   "dependencies": {
+    "@lsk4/err": "^4.26.0",
+    "@lsk4/log": "^4.28.0",
+    "fishbird": "^1.1.8",
     "open": "^7.0.4"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

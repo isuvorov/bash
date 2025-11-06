@@ -1,53 +1,73 @@
 #!/usr/bin/env node
-const fs = require('fs');
+import { lstat, readdir, writeFile } from "node:fs/promises";
+import { createLogger } from "@lsk4/log";
+import Err from "@lsk4/err";
+import { map } from "fishbird";
 
-const projectsEnv = process.env.PROJECTS || (process.env.HOME + '/projects')
-const projectDirs = (projectsEnv).split(',').filter(Boolean);
-if (!projectDirs.length) throw '!projectDirs§'
-const projectJsonDir = projectDirs[0]
+const projectsEnv = process.env.PROJECTS || process.env.HOME + "/projects";
+const projectDirs = projectsEnv.split(",").filter(Boolean);
+if (!projectDirs.length) throw "!projectDirs";
+const projectJsonDir = projectDirs[0];
 // const projectDirs = [__dirname, __dirname + '/lskjs'];
-console.log({projectDirs})
+const log = createLogger("[projects]");
+log.info("[dirs]", projectDirs.join(", "));
 
-function isProject(file, projectDir) {
-  if (file === 'node_modules') return false;
-  // if (file === 'lskjs') return false;
-  if (file[0] === '_') return false;
-  if (file[0] === '.') return false;
-  return fs.lstatSync([projectDir, file].join('/')).isDirectory();
+async function isProject(file, projectDir) {
+	if (file === "node_modules") return false;
+	// if (file === 'lskjs') return false;
+	if (file[0] === "_") return false;
+	if (file[0] === ".") return false;
+	const res = await lstat([projectDir, file].join("/"));
+	return res.isDirectory();
 }
 
-const dirs = [];
-projectDirs.forEach((projectDir) => {
-  try {
-    const files = fs.readdirSync(projectDir);
+async function main() {
+	const dirs = [];
 
-    files.forEach(file => {
-      if (!isProject(file, projectDir)) return;
-      dirs.push({
-        name: file,
-        dir: [projectDir, file].join('/'),
-      });
-    });
-  } catch(err) {
-    console.error({projectDir})
-  }
+	await map(
+		projectDirs,
+		async (projectDir) => {
+			try {
+				const files = await readdir(projectDir);
 
+				await map(files, async (file) => {
+					if (!isProject(file, projectDir)) return;
+					dirs.push({
+						name: file,
+						dir: [projectDir, file].join("/"),
+					});
+				});
+			} catch (err) {
+				log.error(projectDir, Err.getMessage(err));
+			}
+		},
+		[],
+	);
 
-}, []);
+	const projects = dirs.map(({ dir, name }) => ({
+		name: name,
+		rootPath: dir,
+		paths: [],
+		group: "",
+	}));
+	projects.push({
+		name: "bash",
+		rootPath: process.env.HOME + "/bash",
+		paths: [],
+		group: "",
+	});
+	const json = JSON.stringify(projects, null, 4);
+	await writeFile(projectJsonDir + "/projects.json", json);
 
-const projects = dirs.map(({dir, name}) => ({
-  "name": name,
-  "rootPath": dir,
-  "paths": [],
-  "group": ""
-}));
-projects.push({
-  "name": "bash",
-  "rootPath": process.env.HOME + "/bash",
-  "paths": [],
-  "group": ""
+	log.info(
+		"[project.json] saved to",
+		projectJsonDir + "/projects.json",
+		projects.length,
+		"projects",
+	);
+}
+
+main().catch((err) => {
+	log.error("Fatal:", Err.getMessage(err));
+	process.exit(1);
 });
-const json = JSON.stringify(projects, null, 4)
-
-
-fs.writeFileSync(projectJsonDir + '/projects.json', json);
