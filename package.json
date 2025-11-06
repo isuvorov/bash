@@ -7,6 +7,7 @@
     "@lsk4/err": "^4.26.0",
     "@lsk4/log": "^4.28.0",
     "fishbird": "^1.1.8",
+    "fishdash": "^0.3.1",
     "open": "^7.0.4"
   },
   "scripts": {

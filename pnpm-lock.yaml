@@ -17,6 +17,9 @@ importers:
       fishbird:
         specifier: ^1.1.8
         version: 1.1.8
+      fishdash:
+        specifier: ^0.3.1
+        version: 0.3.1
       open:
         specifier: ^7.0.4
         version: 7.4.2
@@ -44,6 +47,9 @@ packages:
 
   fishbird@1.1.8:
     resolution: {integrity: sha512-TX8e3QrhcjvewN/xPoc3YyqnEQ1KZLirX27s1GEljlKJ19LU3sm+yQmoifaEXK2IkFJFvidmp+kYm4xHZLNozA==}
+
+  fishdash@0.3.1:
+    resolution: {integrity: sha512-XvIDyd07RhrZB0KZghnV/IdxUHG1FZTT7bg6F62BPR9S10O5sj9q8x/LkdG6dKI2k3mlg40ljEKkoresLNn1Rw==}
 
   is-docker@2.2.1:
     resolution: {integrity: sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==}
@@ -114,6 +120,8 @@ snapshots:
   fast-safe-stringify@2.1.1: {}
 
   fishbird@1.1.8: {}
+
+  fishdash@0.3.1: {}
 
   is-docker@2.2.1: {}
 

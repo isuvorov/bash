@@ -3,18 +3,18 @@ import { exec as execCallback } from "node:child_process";
 import { existsSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import { basename } from "node:path";
-import { createLogger } from "@lsk4/log";
-import Err from "@lsk4/err";
 import { promisify } from "node:util";
+import Err from "@lsk4/err";
+import { createLogger } from "@lsk4/log";
 import { map } from "fishbird";
+import { getPathInfo, projectDirs } from "../nodejs/config.js";
+import { maxBy, sortBy } from "fishdash";
+
 const exec = promisify(execCallback);
 
-const projectsEnv = process.env.PROJECTS || process.env.HOME + "/projects";
-const projectsDirs = projectsEnv.split(",").filter(Boolean);
-if (!projectsDirs.length) throw "!projectsDirs";
-const projectJsonDir = projectsDirs[0];
-// const projectsDirs = [__dirname, __dirname + '/lskjs'];
-// console.log({projectsDirs})
+function sumBy(obj) {
+	return Object.values(obj).reduce((acc, val) => acc + val, 0);
+}
 const log = createLogger("[git]");
 
 function countBy(collection, func = (a) => a) {
@@ -37,51 +37,59 @@ function joins(statuses) {
 	return Object.keys(h)
 		.map((key) => {
 			const count = statuses[h[key]] || 0;
-      if (count === 0) return '';
+			if (count === 0) return "";
 			if (count === 0) return `${String(space).padStart(3)}${space}`;
 			return `${String(count).padStart(3)}${h[key]}`;
 		})
 		.join(" ");
 }
 
+async function getGitInfo(cwd) {
+	const { stdout, stderr } = await exec("git status -s", { cwd });
+	if (stderr) throw { stderr };
+	if (!stdout) return;
+
+	const statuses = countBy(
+		stdout
+			.split("\n")
+			.map((i) => h[i.substr(0, 2).trim()])
+			.filter(Boolean),
+	);
+	return { cwd, statuses };
+}
+
 async function main() {
-	const projectsArrayArray = await map(projectsDirs, async (projectsDir) => {
+	const projectsArrayArray = await map(projectDirs, async (projectsDir) => {
 		const dirs = await readdir(projectsDir);
+		const cwd = projectsDir;
+		const has = existsSync(cwd + "/.git");
+		if (has) return await getGitInfo(cwd);
+
 		return await map(dirs, async (dir) => {
 			const cwd = projectsDir + "/" + dir;
 			const has = existsSync(cwd + "/.git");
-			const projectName = basename(cwd);
 			if (!has) return;
-			const { stdout, stderr } = await exec("git status -s", { cwd });
-			if (stderr) throw { stderr };
-			if (!stdout) return;
-
-			const statuses = countBy(
-				stdout
-					.split("\n")
-					.map((i) => h[i.substr(0, 2).trim()])
-					.filter(Boolean),
-			);
-			return { cwd, projectName, statuses };
+			return await getGitInfo(cwd);
 		});
 	});
 	const projects = projectsArrayArray.flat().filter(Boolean);
 	const maxNameLength = Math.max(
-		...projects.map(({ projectName }) => projectName.length),
+		...projects.map(({ cwd }) => getPathInfo(cwd).projectName.length),
 	);
-	
-	// Сортируем по сумме всех статусов (по убыванию)
-	projects.sort((a, b) => {
-		const sumA = Object.values(a.statuses).reduce((acc, val) => acc + val, 0);
-		const sumB = Object.values(b.statuses).reduce((acc, val) => acc + val, 0);
-		return sumB - sumA;
+	const sortedProjects = sortBy(projects, (p) => sumBy(p.statuses));
+
+	await map(sortedProjects, async ({ cwd, statuses }) => {
+		const { projectName, parentQuickPath, tags } = getPathInfo(cwd);
+		log.warn(
+			`[${projectName}]`.padEnd(maxNameLength + 2),
+			joins(statuses).padEnd(20),
+			tags.map((tag) => "[" + tag + "]").join(", "),
+			`${parentQuickPath}`,
+		);
 	});
-	
-	await map(projects, async ({ cwd, projectName, statuses }) => {
-		// console.log({statuses})
-		log.warn(`[${projectName}]`.padEnd(maxNameLength + 2), joins(statuses));
-	});
-	log.info(`Legend ${h.A} - added, ${h.M} - modified, ${h.D} - deleted, ${h["??"]} - untracked`);
+	log.info(
+		`Legend ${h.A} - added, ${h.M} - modified, ${h.D} - deleted, ${h["??"]} - untracked`,
+	);
 }
 
 main().catch((err) => {

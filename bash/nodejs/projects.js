@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 import { lstat, readdir, writeFile } from "node:fs/promises";
-import { createLogger } from "@lsk4/log";
 import Err from "@lsk4/err";
+import { createLogger } from "@lsk4/log";
 import { map } from "fishbird";
+import { getPathInfo, projectDirs, projectJsonFile } from "./config.js";
+import { existsSync } from "node:fs";
+import { basename } from "node:path";
 
-const projectsEnv = process.env.PROJECTS || process.env.HOME + "/projects";
-const projectDirs = projectsEnv.split(",").filter(Boolean);
-if (!projectDirs.length) throw "!projectDirs";
-const projectJsonDir = projectDirs[0];
 // const projectDirs = [__dirname, __dirname + '/lskjs'];
 const log = createLogger("[projects]");
 log.info("[dirs]", projectDirs.join(", "));
@@ -29,9 +28,14 @@ async function main() {
 		async (projectDir) => {
 			try {
 				const files = await readdir(projectDir);
+				const has = existsSync(projectDir + "/.git");
+				if (has) {
+					dirs.push({ name: basename(projectDir), dir: projectDir });
+					return;
+				}
 
 				await map(files, async (file) => {
-					if (!isProject(file, projectDir)) return;
+					if (!(await isProject(file, projectDir))) return;
 					dirs.push({
 						name: file,
 						dir: [projectDir, file].join("/"),
@@ -48,20 +52,15 @@ async function main() {
 		name: name,
 		rootPath: dir,
 		paths: [],
-		group: "",
+		tags: getPathInfo(dir).tags,
+		group: Math.random() > 0.5 ? "lskjs" : "other",
 	}));
-	projects.push({
-		name: "bash",
-		rootPath: process.env.HOME + "/bash",
-		paths: [],
-		group: "",
-	});
 	const json = JSON.stringify(projects, null, 4);
-	await writeFile(projectJsonDir + "/projects.json", json);
+	await writeFile(projectJsonFile, json);
 
 	log.info(
 		"[project.json] saved to",
-		projectJsonDir + "/projects.json",
+		projectJsonFile,
 		projects.length,
 		"projects",
 	);
