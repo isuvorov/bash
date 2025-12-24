@@ -80,7 +80,9 @@ async function main() {
 				return await getGitInfo(cwd);
 			});
 		} catch (err) {
-			log.warn(`Cannot access directory ${projectsDir}: ${Err.getMessage(err)}`);
+			log.warn(
+				`Cannot access directory ${projectsDir}: ${Err.getMessage(err)}`,
+			);
 			return [];
 		}
 	});
