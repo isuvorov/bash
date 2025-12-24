@@ -1,11 +1,11 @@
 #!/usr/bin/env node
+import { existsSync } from "node:fs";
 import { lstat, readdir, writeFile } from "node:fs/promises";
+import { basename } from "node:path";
 import Err from "@lsk4/err";
 import { createLogger } from "@lsk4/log";
 import { map } from "fishbird";
 import { getPathInfo, projectDirs, projectJsonFile } from "./config.js";
-import { existsSync } from "node:fs";
-import { basename } from "node:path";
 
 // const projectDirs = [__dirname, __dirname + '/lskjs'];
 const log = createLogger("[projects]");

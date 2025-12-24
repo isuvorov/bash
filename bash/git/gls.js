@@ -2,13 +2,12 @@
 import { exec as execCallback } from "node:child_process";
 import { existsSync } from "node:fs";
 import { readdir } from "node:fs/promises";
-import { basename } from "node:path";
 import { promisify } from "node:util";
 import Err from "@lsk4/err";
 import { createLogger } from "@lsk4/log";
 import { map } from "fishbird";
+import { sortBy } from "fishdash";
 import { getPathInfo, projectDirs } from "../nodejs/config.js";
-import { maxBy, sortBy } from "fishdash";
 
 const exec = promisify(execCallback);
 
@@ -45,32 +44,45 @@ function joins(statuses) {
 }
 
 async function getGitInfo(cwd) {
-	const { stdout, stderr } = await exec("git status -s", { cwd });
-	if (stderr) throw { stderr };
-	if (!stdout) return;
+	try {
+		const { stdout, stderr } = await exec("git status -s", { cwd });
+		if (stderr) {
+			log.warn(`err in ${cwd}: ${stderr}`);
+			return;
+		}
+		if (!stdout) return;
 
-	const statuses = countBy(
-		stdout
-			.split("\n")
-			.map((i) => h[i.substr(0, 2).trim()])
-			.filter(Boolean),
-	);
-	return { cwd, statuses };
+		const statuses = countBy(
+			stdout
+				.split("\n")
+				.map((i) => h[i.substr(0, 2).trim()])
+				.filter(Boolean),
+		);
+		return { cwd, statuses };
+	} catch (err) {
+		log.warn(`Cannot get git info for ${cwd}: ${Err.getMessage(err)}`);
+		return;
+	}
 }
 
 async function main() {
 	const projectsArrayArray = await map(projectDirs, async (projectsDir) => {
-		const dirs = await readdir(projectsDir);
-		const cwd = projectsDir;
-		const has = existsSync(cwd + "/.git");
-		if (has) return await getGitInfo(cwd);
-
-		return await map(dirs, async (dir) => {
-			const cwd = projectsDir + "/" + dir;
+		try {
+			const dirs = await readdir(projectsDir);
+			const cwd = projectsDir;
 			const has = existsSync(cwd + "/.git");
-			if (!has) return;
-			return await getGitInfo(cwd);
-		});
+			if (has) return await getGitInfo(cwd);
+
+			return await map(dirs, async (dir) => {
+				const cwd = projectsDir + "/" + dir;
+				const has = existsSync(cwd + "/.git");
+				if (!has) return;
+				return await getGitInfo(cwd);
+			});
+		} catch (err) {
+			log.warn(`Cannot access directory ${projectsDir}: ${Err.getMessage(err)}`);
+			return [];
+		}
 	});
 	const projects = projectsArrayArray.flat().filter(Boolean);
 	const maxNameLength = Math.max(
@@ -93,9 +105,9 @@ async function main() {
 }
 
 main().catch((err) => {
-	log.error(Err.getCode(err));
-	log.error(Err.getMessage(err));
-	log.error(err);
+	log.err(Err.getCode(err));
+	log.err(Err.getMessage(err));
+	log.err(err);
 	process.exit(1);
 });
 
