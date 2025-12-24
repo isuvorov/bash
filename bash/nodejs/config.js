@@ -19,14 +19,20 @@ export function getQuickPath(cwd) {
 export function getPathInfo(projectsDir) {
 	const quickPath = getQuickPath(projectsDir);
 	const dirs = projectsDir.split("/");
-	
-  
-  const volumeName = projectsDir.startsWith("/Volumes")
+
+	const volumeName = projectsDir.startsWith("/Volumes")
 		? "/V/" + dirs[2]
 		: getQuickPath(resolve(projectsDir + "/.."));
 
 	const tags = [volumeName];
 
 	const projectName = basename(projectsDir);
-	return { dirs, volumeName, projectName, quickPath, parentQuickPath: getQuickPath(resolve(projectsDir + "/..")),  tags };
+	return {
+		dirs,
+		volumeName,
+		projectName,
+		quickPath,
+		parentQuickPath: getQuickPath(resolve(projectsDir + "/..")),
+		tags,
+	};
 }
