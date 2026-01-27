@@ -20,3 +20,5 @@ compinit
 . ~/bash/bash/git-aliases.sh
 . ~/bash/bash/nodejs-aliases.sh
 . ~/bash/bash/utils-aliases.sh
+
+. ~/bash/bash/sendtodo/sendtodo.sh
