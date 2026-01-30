@@ -14,11 +14,15 @@ export OPENCOLLECTIVE_HIDE=true
 # autoload -U compinit
 compinit
 
+DIR="$(dirname "${BASH_SOURCE[0]:-$0}")"
+# echo "Sourcing bash aliases from $DIR"
 
 ## Aliases set up
-. ~/bash/bash/apps-aliases.sh
-. ~/bash/bash/git-aliases.sh
-. ~/bash/bash/nodejs-aliases.sh
-. ~/bash/bash/utils-aliases.sh
+. "$DIR/bash/apps-aliases.sh"
+. "$DIR/bash/git-aliases.sh"
+. "$DIR/bash/utils-aliases.sh"
+. "$DIR/bash/ru-aliases.sh"
 
-. ~/bash/bash/sendtodo/sendtodo.sh
+. "$DIR/n/n.sh"
+. "$DIR/obsidian/obsidian.sh"
+. "$DIR/things3/things3.sh"

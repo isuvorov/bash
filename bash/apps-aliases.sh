@@ -22,6 +22,7 @@ alias tf="terraform"
 alias passgen="echo \"pwgen -s -y 30 1\" && pwgen -s -y 30 1"
 alias passgensafe="echo \"pwgen -s 30 1\" && pwgen -s 30 1"
 
+
 alias k="kubecolor"
 if command -v kubectl >/dev/null 2>&1; then
   compdef k=kubectl

@@ -170,6 +170,8 @@
 	<integer>10</integer>
 	<key>JobName</key>
 	<true/>
+	<key>MinimalTabStyleTreatLeftInsetAsPartOfFirstTab</key>
+	<false/>
 	<key>NeverWarnAboutOverrides</key>
 	<true/>
 	<key>NeverWarnAboutOverrides_selection</key>

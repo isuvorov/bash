@@ -1,4 +1,7 @@
-
+log() {
+  printf "\e[35m>\e[0m \e[2m%s\e[0m\n" "$*"
+  "$@"
+}
 alias cx="chmod +x"
 # alias p="~/bash/bash/utils/p.sh"
 alias pd="~/bash/bash/utils/pd.sh"
@@ -15,6 +18,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias zen='/Applications/Zen.app/Contents/MacOS/zen'
+
+alias projects="   log ~/bash/bash/nodejs/projects.js && ~/bash/bash/git/gls.js"
+
 
 function set_dc_alias() {
   if docker compose version >/dev/null 2>&1; then
