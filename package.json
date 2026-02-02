@@ -1,26 +1,36 @@
 {
-  "name": "bash",
-  "version": "1.0.0",
-  "description": "Bash aliases, zsh/oh-my-zsh config and shell utilites",
-  "main": "bunyan.js",
-  "dependencies": {
-    "@lsk4/err": "^4.26.0",
-    "@lsk4/log": "^4.28.0",
-    "fishbird": "^1.1.8",
-    "fishdash": "^0.3.1",
-    "open": "^7.0.4"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/isuvorov/bash.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/isuvorov/bash/issues"
-  },
-  "homepage": "https://github.com/isuvorov/bash#readme"
+	"name": "bash",
+	"version": "1.0.0",
+	"description": "Bash aliases, zsh/oh-my-zsh config and shell utilites",
+	"type": "module",
+	"main": "bunyan.js",
+	"dependencies": {
+		"@lsk4/err": "^4.26.0",
+		"@lsk4/log": "^4.28.0",
+		"execa": "^9.6.1",
+		"fishbird": "^1.1.8",
+		"fishdash": "^0.3.1",
+		"open": "^7.0.4"
+	},
+	"scripts": {
+		"test": "bun run test:lint",
+		"test:lint": "biome check .",
+		"fix": "biome check --write .",
+		"fix:lint": "biome lint --write .",
+		"fix:format": "biome format --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/isuvorov/bash.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/isuvorov/bash/issues"
+	},
+	"homepage": "https://github.com/isuvorov/bash#readme",
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.13",
+		"@lskjs/biome-config": "^1.0.0"
+	}
 }

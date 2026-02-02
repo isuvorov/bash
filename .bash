@@ -17,6 +17,9 @@ compinit
 DIR="$(dirname "${BASH_SOURCE[0]:-$0}")"
 # echo "Sourcing bash aliases from $DIR"
 
+. "$DIR/log.sh"
+
+
 ## Aliases set up
 . "$DIR/bash/apps-aliases.sh"
 . "$DIR/bash/git-aliases.sh"
@@ -26,3 +29,4 @@ DIR="$(dirname "${BASH_SOURCE[0]:-$0}")"
 . "$DIR/n/n.sh"
 . "$DIR/obsidian/obsidian.sh"
 . "$DIR/things3/things3.sh"
+. "$DIR/projectmanager/projectmanager.sh"

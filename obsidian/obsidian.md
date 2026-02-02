@@ -28,6 +28,7 @@ obs doc1.md doc2.md
 
 - [Red Graphite](https://github.com/seanwcom/Red-Graphite-for-Obsidian) — минималистичная тема для Obsidian
 - Шрифты Bear Sans UI: `/Applications/Bear.app/Contents/Resources/BearSansUI-Regular.otf`
+- https://www.storyspooler.com/make-obsidian-look-like-bear-2/
 
 ## Credits
 

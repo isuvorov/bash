@@ -1,9 +1,9 @@
 
+_OBSIDIAN_DIR="$(dirname "${BASH_SOURCE[0]:-${0:a}}")"
 
-# asdasd #!/bin/bash
-CURRENT_DIR="$(dirname "${BASH_SOURCE[0]:-$0}")"
+alias ob="$_OBSIDIAN_DIR/open-obsidian.sh"
+alias obs="$_OBSIDIAN_DIR/open-obsidian.sh"
+alias щи="$_OBSIDIAN_DIR/open-obsidian.sh"
+alias щив="$_OBSIDIAN_DIR/open-obsidian.sh"
 
-alias ob="$CURRENT_DIR/open-obsidian.sh"
-alias obs="$CURRENT_DIR/open-obsidian.sh"
-alias щи="$CURRENT_DIR/open-obsidian.sh"
-alias щив="$CURRENT_DIR/open-obsidian.sh"
+unset _OBSIDIAN_DIR

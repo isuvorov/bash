@@ -7,7 +7,7 @@ import Err from "@lsk4/err";
 import { createLogger } from "@lsk4/log";
 import { map } from "fishbird";
 import { sortBy } from "fishdash";
-import { getPathInfo, projectDirs } from "../nodejs/config.js";
+import { getPathInfo, projectDirs } from "./config.js";
 
 const exec = promisify(execCallback);
 

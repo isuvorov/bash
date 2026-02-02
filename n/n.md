@@ -1,4 +1,4 @@
-# N-Aliases — Алиасы для Node.js разработки
+o# N-Aliases — Алиасы для Node.js разработки
 
 Набор bash-алиасов для быстрой работы с Node.js проектами через [ni](https://github.com/antfu-collective/ni).
 

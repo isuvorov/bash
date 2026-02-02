@@ -1,7 +1,3 @@
-log() {
-  printf "\e[35m>\e[0m \e[2m%s\e[0m\n" "$*"
-  "$@"
-}
 alias cx="chmod +x"
 # alias p="~/bash/bash/utils/p.sh"
 alias pd="~/bash/bash/utils/pd.sh"

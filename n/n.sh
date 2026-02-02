@@ -1,14 +1,11 @@
-log() {
-  printf "\e[35m>\e[0m \e[2m%s\e[0m\n" "$*"
-  "$@"
-}
-
 ###########
 # Before using these aliases, make sure you have 'ni' installed:
 # brew install ni
 # https://github.com/antfu-collective/ni
 ###########
 
+
+alias pi="         log ni"
 
 alias nu="         log nup"
 alias nrm="        log rm -f {package-lock.json,yarn.lock,bun.lockb} && ni"
@@ -22,32 +19,49 @@ alias nrmf="       log rm -f {package-lock.json,yarn.lock,bun.lockb} && rm -rf n
 
 alias nf="         log nr fix"
 alias np="         log nr release"
-alias npp="        log nr release --yes"
+npp() {
+  if grep -q "\"release:prod\":" package.json; then
+    log nr release:prod
+  else
+    log nr release
+  fi
+}
 
 alias n="          log nr start"
-alias ns='
+ns() {
   if grep -q "\"start:dev\":" package.json; then
     log nr start:dev
   elif grep -q "\"start:ts\":" package.json; then
     log nr start:ts
-  else
   elif grep -q "storybook" package.json; then
     log nr storybook
   else
     log nr start:dev
   fi
-'
+}
 
 alias nd="         log nr dev"
 alias nds="        log nr dev:server"
 alias ndc="        log nr dev:client"
 # alias nbt="        echo \"nr build --prod && nr test --prod\" && nr build --prod && nr test --prod" 
-alias nbt="        log nr build --prod && log nr test --prod"
 
 alias nb="         log nr build"
-alias nbb="        log nr build --prod"
+nbb() {
+  if grep -q "\"build:prod\":" package.json; then
+    log nr build:prod
+  else
+    log nr build
+  fi
+}
 alias nt="         log nr test"
-alias ntw='
+ntt() {
+  if grep -q "\"test:prod\":" package.json; then
+    log nr test:prod
+  else
+    log nr test
+  fi
+}
+ntw() {
   if grep -q "\"start:watch\":" package.json; then
     log nr start:watch
   elif grep -q "\"test:watch\":" package.json; then
@@ -55,8 +69,8 @@ alias ntw='
   else
     log nr test --watch
   fi
-'
-alias ntd='
+}
+ntd() {
   if grep -q "\"test:demo\":" package.json; then
     log nr test:demo
   elif grep -q "\"test:dev\":" package.json; then
@@ -64,8 +78,8 @@ alias ntd='
   else
     log nr test --dev
   fi
-'
-alias ntl='
+}
+ntl() {
   if grep -q "\"test:lint\":" package.json; then
     log nr test:lint
   elif grep -q "\"test:eslint\":" package.json; then
@@ -73,7 +87,11 @@ alias ntl='
   else
     log nr test --lint
   fi
-'
+}
+
+nbt() {
+  nbb && ntt
+}
 
 
 

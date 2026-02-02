@@ -7,5 +7,5 @@ then
 fi
 
 cmd="$@"
-echo "ssh ${SERVER} \"${SERVER_PREFIX}docker $cmd\""
-ssh ${SERVER} "${SERVER_PREFIX}docker $cmd"
+echo "ssh ${SERVER} \"${LSKJS_PDS_PREFIX}docker $cmd\""
+ssh ${SERVER} "${LSKJS_PDS_PREFIX}docker $cmd"
