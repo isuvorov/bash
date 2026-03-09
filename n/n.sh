@@ -7,6 +7,7 @@
 
 alias pi="         log ni"
 
+
 alias nu="         log nup"
 alias nrm="        log rm -f {package-lock.json,yarn.lock,bun.lockb} && ni"
 alias nrmf="       log rm -f {package-lock.json,yarn.lock,bun.lockb} && rm -rf node_modules && ni"
@@ -41,11 +42,16 @@ ns() {
 }
 
 alias nd="         log nr dev"
+alias тв="nd"
 alias nds="        log nr dev:server"
+alias твы="nds"
 alias ndc="        log nr dev:client"
+alias твc="ndc"
 # alias nbt="        echo \"nr build --prod && nr test --prod\" && nr build --prod && nr test --prod" 
 
 alias nb="         log nr build"
+alias ти="nb"
+
 nbb() {
   if grep -q "\"build:prod\":" package.json; then
     log nr build:prod
@@ -53,7 +59,9 @@ nbb() {
     log nr build
   fi
 }
+alias тии="nbb"
 alias nt="         log nr test"
+alias те="nt"
 ntt() {
   if grep -q "\"test:prod\":" package.json; then
     log nr test:prod
@@ -61,6 +69,7 @@ ntt() {
     log nr test
   fi
 }
+alias тее="ntt"
 ntw() {
   if grep -q "\"start:watch\":" package.json; then
     log nr start:watch
@@ -70,6 +79,7 @@ ntw() {
     log nr test --watch
   fi
 }
+alias тец="ntw"
 ntd() {
   if grep -q "\"test:demo\":" package.json; then
     log nr test:demo
@@ -79,6 +89,7 @@ ntd() {
     log nr test --dev
   fi
 }
+alias тев="ntd"
 ntl() {
   if grep -q "\"test:lint\":" package.json; then
     log nr test:lint
@@ -88,10 +99,12 @@ ntl() {
     log nr test --lint
   fi
 }
-
+alias тед="ntl"
 nbt() {
   nbb && ntt
 }
+alias тие="nbt"
+
 
 
 

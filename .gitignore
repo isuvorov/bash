@@ -1,4 +1,6 @@
 alert.sh
 oh-my-zsh
 node_modules
+local-aliases.sh
 __*
+**/local-*

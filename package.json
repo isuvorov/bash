@@ -10,7 +10,8 @@
 		"execa": "^9.6.1",
 		"fishbird": "^1.1.8",
 		"fishdash": "^0.3.1",
-		"open": "^7.0.4"
+		"open": "^7.0.4",
+		"yargs": "^18.0.0"
 	},
 	"scripts": {
 		"test": "bun run test:lint",

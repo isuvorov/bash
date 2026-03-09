@@ -1,0 +1,78 @@
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+# keybind = global:cmd+`=toggle_quick_terminal
+
+confirm-close-surface = false
+keybind = alt+backspace=text:\x17
+
+font-family = "JetBrains Mono Light"
+font-family-bold = "JetBrains Mono"
+font-thicken = true
+font-size = 14
+background-opacity = 0.90
+
+keybind = global:cmd+shift+escape=toggle_quick_terminal
+quick-terminal-animation-duration = 0
+
+
+# keybind = global:ctrl+>=toggle_quick_terminal
+# keybind = global:ctrl+§=toggle_quick_terminal
+# fullscreen = true
+# window-decoration = true
+# window-inherit-font-size = true
+# maximize = true
+# quick-terminal-position = top
+# quick-terminal-size = 100%
+# quick-terminal-screen = main 
+# palette = #000000
+# palette = #cd3131
+# palette = #0dbc79
+# palette = #e5e510
+# palette = #2472c8
+# palette = #bc3fbc
+# palette = #11a8cd
+# palette = #e5e5e5
+# # Bright colors (8-15)
+# palette = #666666
+# palette = #f14c4c
+# palette = #23d18b
+# palette = #f5f543
+# palette = #3b8eea
+# palette = #d670d6
+# palette = #29b8db
+# palette = #e5e5e5
+
+# Cursor Dark theme colors
+background = #080808
+foreground = #cccccc
+# Normal colors (0-7)
+palette = 0=#000000
+palette = 1=#cd3131
+palette = 2=#0dbc79
+palette = 3=#e5e510
+palette = 4=#2472c8
+palette = 5=#bc3fbc
+palette = 6=#11a8cd
+palette = 7=#e5e5e5
+# Bright colors (8-15)
+palette = 8=#666666
+palette = 9=#f14c4c
+palette = 10=#23d18b
+palette = 11=#f5f543
+palette = 12=#3b8eea
+palette = 13=#d670d6
+palette = 14=#29b8db
+palette = 15=#e5e5e5
+# Cursor
+cursor-color = #aeafad
+# Selection
+selection-background = #264f78
+selection-foreground = #ffffff
+split-divider-color = #dddddd
+# split-divider-width = 1
+
+
+
+
+
+# alt + backspace сделать удаление символа?

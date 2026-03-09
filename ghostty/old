@@ -1,0 +1,135 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /Users/isuvorov/Library/Application Support/com.mitchellh.ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+#
+# Ghostty can reload the configuration while running by using the menu
+# options or the bound key (default: Command + Shift + comma on macOS and
+# Control + Shift + comma on other platforms). Not all config options can be
+# reloaded while running; some only apply to new windows and others may require
+# a full restart to take effect.
+
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+# font-family = Iosevka
+# window-padding-x = 2
+# #
+# # # Spacing around the equals sign does not matter.
+# # # All of these are identical:
+# # key=value
+# # key= value
+# # key =value
+# # key = value
+# #
+# # # Any line beginning with a # is a comment. It's not possible to put
+# # # a comment after a config option, since it would be interpreted as a
+# # # part of the value. For example, this will have a value of "#123abc":
+# # background = #123abc
+# #
+# # # Empty values are used to reset config keys to default.
+# # key =
+# #
+# # # Some config options have unique syntaxes for their value,
+# # # which is explained in the docs for that config option.
+# # # Just for example:
+# # resize-overlay-duration = 4s 200ms
+
+# # ~/.config/ghostty/config
+# # The syntax is "key = value". The whitespace around the
+# # equals doesn't matter.
+# keybind = ctrl+z=close_surface
+# keybind = ctrl+d=new_split:right
+# keybind = ctrl+v=new_split:down
+# keybind = ctrl+shift+.=reload_config
+# # Global keybinds work system-wide as long as
+# # Ghostty application is running.
+# keybind = global:ctrl+`=toggle_quick_terminal
+# font-family = "JetBrains Mono"
+# font-size = 14
+# # Run ghostty +list-themes to browse available themes.
+# theme = andromeda
+# cursor-style = block
+# # You might now want this, I'm using Fish, but you're likely on Zsh.
+# shell-integration = fish
+# shell-integration-features = cursor, sudo, title
+# macos-titlebar-style = tabs
+# macos-option-as-alt = true
+# # Auto-update Ghostty when a new release is available.
+# auto-update = download
+# # gpg pinentry freaks out if $TERM is not set
+# term = xterm-256color
+
+
+
+# Cursor Dark theme colors
+background = #080808
+foreground = #cccccc
+# Normal colors (0-7)
+palette = 0=#000000
+palette = 1=#cd3131
+palette = 2=#0dbc79
+palette = 3=#e5e510
+palette = 4=#2472c8
+palette = 5=#bc3fbc
+palette = 6=#11a8cd
+palette = 7=#e5e5e5
+# Bright colors (8-15)
+palette = 8=#666666
+palette = 9=#f14c4c
+palette = 10=#23d18b
+palette = 11=#f5f543
+palette = 12=#3b8eea
+palette = 13=#d670d6
+palette = 14=#29b8db
+palette = 15=#e5e5e5
+# Cursor
+cursor-color = #aeafad
+# Selection
+selection-background = #264f78
+selection-foreground = #ffffff
+
+
+# font-family = "JetBrains Mono"
+background-opacity = 0.90
+
+keybind = global:ctrl+escape=toggle_quick_terminal
+# quick-terminal-position = center
+# quick-terminal-autohide = unfocus
+confirm-close-surface = false
+
+keybind = global:ctrl+escape=toggle_quick_terminal
+quick-terminal-animation-duration = 0
+# fullscreen = true
+
+window-decoration = true
+window-inherit-font-size = true
+# maximize = true
+# quick-terminal-position = top
+quick-terminal-size = 100%
+quick-terminal-screen = main 
+#mouse
+
+# alt + backspace сделать удаление символа?
+keybind = alt+backspace=text:\x17
+
+#   shell-integration = zsh
+#   shell-integration-features = title
+# shell-integration-features = no-title
+
+# quick-terminal-position = right
+# quick-terminal-screen = main
+# quick-terminal-animation-duration = 0.1
