@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "WebFetch(domain:forum.cursor.com)",
-      "WebFetch(domain:gist.github.com)"
-    ]
-  }
-}
