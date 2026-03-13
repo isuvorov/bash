@@ -1,15 +1,12 @@
-source ~/bash/p10k.zsh
-# source ~/bash/pure.zsh
-
-# DISABLE_AUTO_UPDATE="true"
-
+source ~/bash/prompts/auto.zsh
+# source ~/bash/prompts/p10k.zsh
 source $ZSH/oh-my-zsh.sh
 source ~/.bash
 
+# init starship after oh-my-zsh (needs to override prompt)
+[[ "$__lsk_starship_deferred" == "true" ]] && eval "$(starship init zsh)"
 bindkey "^[b" backward-word
 bindkey "^[f" forward-word
-
-
 DEFAULT_USER=""
 prompt_context () { }
 

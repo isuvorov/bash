@@ -1,0 +1,68 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+
+format = """
+$directory\
+$fill\
+$cmd_duration\
+$jobs\
+$docker_context\
+$rust\
+$python\
+$nodejs\
+$git_status\
+$git_branch\
+$line_break\
+$character"""
+
+right_format = ""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+# Путь — тёмный текст на голубом фоне (как p10k: bg=14, fg=236)
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+style = "bg:14 fg:236 bold"
+format = "[ $path ](bg:14 fg:236 bold)[](fg:14)"
+
+[fill]
+symbol = " "
+
+# Git branch — зелёный фон как p10k clean (112)
+[git_branch]
+style = "bg:112 fg:236 bold"
+format = "[](fg:112)[ $symbol$branch ](bg:112 fg:236 bold)"
+
+# Git status — оранжевый если грязный
+[git_status]
+style = "bold 214"
+format = "[$all_status$ahead_behind]($style) "
+
+[jobs]
+style = "bold yellow"
+format = "[$symbol$number]($style) "
+
+[cmd_duration]
+min_time = 3_000
+style = "bold yellow"
+format = "[$duration]($style) "
+
+[nodejs]
+format = "[$symbol$version]($style) "
+detect_extensions = []
+style = "green"
+
+[python]
+format = "[$symbol$version]($style) "
+style = "yellow"
+
+[rust]
+format = "[$symbol$version]($style) "
+style = "red"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+style = "blue"
